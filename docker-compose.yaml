@@ -1,5 +1,5 @@
 services:
-  gcc-dev:
+  gcc-clang-dev:
     build: .
     volumes:
       - .:/workspace
