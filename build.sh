@@ -22,7 +22,7 @@ build_with_wrap() {
 }
 
 cleanup() {
-    rm -f *.o wrap nowrap
+    rm -rf $BUILD_DIR
 }
 
 cleanup
@@ -40,6 +40,6 @@ build_by_clang () {
     clang src/main.c src/foo.c -Wl,--wrap=foo -o $BUILD_DIR/main_clang
 }
 
-
+cleanup
 build_by_gcc
 build_by_clang

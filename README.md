@@ -13,3 +13,7 @@ docker-compose exec gcc-clang-dev bash
 ```
 
 ## ビルドと動作確認
+
+```bash
+bash build.sh
+```
