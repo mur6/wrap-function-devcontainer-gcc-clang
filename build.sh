@@ -1,34 +1,39 @@
 #!/bin/sh -x
 
-CC=gcc
 BUILD_DIR=build
 
-build_without_wrap() {
-    rm -f *.o wrap nowrap
+# build_without_wrap() {
+#     rm -f *.o wrap nowrap
 
-    # build without wrapping
-    $CC -c wrap.c -o wrap.o
-    $CC -c wrap_b.c -o wrap_b.o
-    $CC wrap.o wrap_b.o -o nowrap
-}
+#     # build without wrapping
+#     $CC -c wrap.c -o wrap.o
+#     $CC -c wrap_b.c -o wrap_b.o
+#     $CC wrap.o wrap_b.o -o nowrap
+# }
 
-build_with_wrap() {
-    rm -f *.o wrap
+# build_with_wrap() {
+#     rm -f *.o wrap
 
-    # build with wrapping
-    $CC -DWRAP -c wrap.c -o wrap.o
-    $CC -DWRAP -c wrap_b.c -o wrap_b.o
-    $CC -Wl,--wrap=moveme wrap.o wrap_b.o -o wrap
+#     # build with wrapping
+#     $CC -DWRAP -c wrap.c -o wrap.o
+#     $CC -DWRAP -c wrap_b.c -o wrap_b.o
+#     $CC -Wl,--wrap=moveme wrap.o wrap_b.o -o wrap
+# }
+
+show_compiler_version() {
+    echo "==== gcc version"
+    gcc --version
+    echo "==== clang version"
+    clang --version
+    echo "==== ld version"
+    ld --version
+    echo
+    echo
 }
 
 cleanup() {
     rm -rf $BUILD_DIR
 }
-
-cleanup
-# build_without_wrap
-# build_with_wrap
-
 
 build_by_gcc () {
     mkdir -p $BUILD_DIR
@@ -48,6 +53,7 @@ run() {
 }
 
 cleanup
+show_compiler_version
 build_by_gcc
 build_by_clang
 run
