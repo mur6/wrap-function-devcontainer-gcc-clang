@@ -31,9 +31,15 @@ cleanup
 
 
 build_by_gcc () {
-    gcc main.c foo.c -Wl,--wrap=foo -o $BUILD_DIR/main_gcc
+    mkdir -p $BUILD_DIR
+    gcc src/main.c src/foo.c -Wl,--wrap=foo -o $BUILD_DIR/main_gcc
 }
 
 build_by_clang () {
-    clang main.c foo.c -Wl,--wrap=foo -o $BUILD_DIR/main_clang
+    mkdir -p $BUILD_DIR
+    clang src/main.c src/foo.c -Wl,--wrap=foo -o $BUILD_DIR/main_clang
 }
+
+
+build_by_gcc
+build_by_clang
