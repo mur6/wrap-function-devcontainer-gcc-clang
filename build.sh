@@ -1,8 +1,9 @@
 #!/bin/sh -x
 
 CC=gcc
+BUILD_DIR=build
 
-function build_without_wrap() {
+build_without_wrap() {
     rm -f *.o wrap nowrap
 
     # build without wrapping
@@ -11,7 +12,7 @@ function build_without_wrap() {
     $CC wrap.o wrap_b.o -o nowrap
 }
 
-function build_with_wrap() {
+build_with_wrap() {
     rm -f *.o wrap
 
     # build with wrapping
@@ -20,7 +21,7 @@ function build_with_wrap() {
     $CC -Wl,--wrap=moveme wrap.o wrap_b.o -o wrap
 }
 
-function cleanup() {
+cleanup() {
     rm -f *.o wrap nowrap
 }
 
