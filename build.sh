@@ -40,6 +40,14 @@ build_by_clang () {
     clang src/main.c src/foo.c -Wl,--wrap=foo -o $BUILD_DIR/main_clang
 }
 
+run() {
+    echo "==== Run main_gcc"
+    $BUILD_DIR/main_gcc
+    echo "==== Run main_clang"
+    $BUILD_DIR/main_clang
+}
+
 cleanup
 build_by_gcc
 build_by_clang
+run
