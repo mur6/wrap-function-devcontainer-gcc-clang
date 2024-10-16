@@ -1,4 +1,15 @@
-# vscode dev gcc, clang
+# wrap function
+
+c言語、Linux環境(Docker)、gccとclangでリンカーのwrapオプションをテストするサンプルコード.
+
+## キーワード
+
+- c lang
+- gcc
+- clang
+- リンカー, GNU ld
+- wrapオプション
+- vscode, docker, docker-compose
 
 ## 環境の構築
 
