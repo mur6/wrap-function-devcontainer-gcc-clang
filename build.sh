@@ -27,4 +27,13 @@ cleanup() {
 
 cleanup
 # build_without_wrap
-build_with_wrap
+# build_with_wrap
+
+
+build_by_gcc () {
+    gcc main.c foo.c -Wl,--wrap=foo -o $BUILD_DIR/main_gcc
+}
+
+build_by_clang () {
+    clang main.c foo.c -Wl,--wrap=foo -o $BUILD_DIR/main_clang
+}
